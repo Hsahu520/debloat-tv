@@ -22,6 +22,7 @@ android {
         versionName '2.7'
         resValue 'string', 'greeting_name', conf('GREETING_NAME')
         resValue 'string', 'weather_city', conf('WEATHER_CITY')
+        resValue 'string', 'subscriptions', conf('SUBSCRIPTIONS')
     }
 
     buildTypes {

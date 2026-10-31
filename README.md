@@ -16,7 +16,8 @@ debloat list is model-specific (see step 5).
   Works offline with the TV's own speech service.
 - **🎮 Games**: Poster Memory and Synthwave Run, played with the remote.
 - **Bluetooth** and **Power** (restart / power off) buttons on Home.
-- **Screensaver**: "GOOD EVENING", your name, clock, date and weather over a photo of your choice.
+- **Screensaver**: "GOOD EVENING", your name, clock, date, weather and your streaming subscriptions with the days
+  left (from `SUBSCRIPTIONS` in `tv.conf`), over a photo of your choice.
 - **No ads**: Xiaomi / Google ad rows, analytics and promo apps switched off.
 
 ## What you need
@@ -107,7 +108,7 @@ To undo only the debloat: `./scripts/restore.sh lists/<the list you used>.txt`.
 
 | What | Where |
 |---|---|
-| Your name, weather city, TV address | `tv.conf` |
+| Your name, weather city, TV address, subscription renewals | `tv.conf` |
 | Dock apps and their order | `launcher/app/src/main/res/values/config.xml` → `dock_apps` (or *Edit dock* on the TV) |
 | Titles for For You, Swipe, Jarvis | `launcher/app/src/main/assets/catalog.json` (then `python3 tools/fetch_posters.py`) |
 | Home wallpaper theme | `./scripts/theme.sh themes/aurora-dynamic` (morning / evening / night wallpapers) |

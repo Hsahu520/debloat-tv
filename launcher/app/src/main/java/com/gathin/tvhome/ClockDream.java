@@ -24,6 +24,7 @@ public class ClockDream extends DreamService {
     private final Random rnd = new Random();
     private LinearLayout block;
     private TextView greeting, nameLine, weather;
+    private LinearLayout subs;
 
     @Override
     public void onAttachedToWindow() {
@@ -81,6 +82,12 @@ public class ClockDream extends DreamService {
         LinearLayout.LayoutParams wl = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         wl.topMargin = Ui.dp(this, 22);
         block.addView(weather, wl);
+        // Streaming subscriptions and the days left on each (SUBSCRIPTIONS in tv.conf).
+        subs = new LinearLayout(this);
+        subs.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams sl = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        sl.topMargin = Ui.dp(this, 14);
+        block.addView(subs, sl);
         // Full width with centred children: a wrap_content column kept the width of its first layout and cut the
         // greeting once the name was filled in.
         FrameLayout.LayoutParams bl = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_VERTICAL | Gravity.START);
@@ -105,10 +112,35 @@ public class ClockDream extends DreamService {
         nameLine.setText(name);
         nameLine.setVisibility(name.isEmpty() ? android.view.View.GONE : android.view.View.VISIBLE);
         Weather.get(this, (temp, cond, city) -> weather.setText(temp + "   " + cond + "   ·   " + city));
+        fillSubscriptions();
         float range = Ui.dp(this, 40);
         block.animate().translationX(rnd.nextFloat() * range).translationY((rnd.nextFloat() * 2 - 1) * range * 1.5f)
                 .setDuration(4000).start();
         h.postDelayed(this::tick, 60_000);
+    }
+
+    private void fillSubscriptions() {
+        subs.removeAllViews();
+        for (Subscriptions.Sub sub : Subscriptions.parse(getString(R.string.subscriptions))) {
+            LinearLayout chip = new LinearLayout(this);
+            chip.setOrientation(LinearLayout.VERTICAL);
+            chip.setPadding(Ui.dp(this, 16), Ui.dp(this, 9), Ui.dp(this, 16), Ui.dp(this, 9));
+            chip.setBackground(new Ui.LiquidGlass(this, 18));
+            TextView n = Ui.text(this, R.font.montserrat_bold, 13, 0xFFFFFFFF);
+            n.setText(sub.name);
+            n.setSingleLine(true);
+            chip.addView(n);
+            TextView d = Ui.text(this, R.font.montserrat_medium, 12, sub.color());
+            d.setText(sub.label());
+            d.setSingleLine(true);
+            LinearLayout.LayoutParams dl = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            dl.topMargin = Ui.dp(this, 3);
+            chip.addView(d, dl);
+            LinearLayout.LayoutParams cl = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            if (subs.getChildCount() > 0) cl.leftMargin = Ui.dp(this, 10);
+            subs.addView(chip, cl);
+        }
+        subs.setVisibility(subs.getChildCount() == 0 ? android.view.View.GONE : android.view.View.VISIBLE);
     }
 
     @Override
