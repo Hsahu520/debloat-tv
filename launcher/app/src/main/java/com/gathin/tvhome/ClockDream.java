@@ -108,8 +108,8 @@ public class ClockDream extends DreamService {
         String part = hr >= 5 && hr < 12 ? "Good Morning" : hr >= 12 && hr < 17 ? "Good Afternoon"
                 : hr >= 17 && hr < 21 ? "Good Evening" : "Good Night";
         String name = getString(R.string.greeting_name).trim();
-        greeting.setText(part);
-        nameLine.setText(name);
+        greeting.setText(part.toUpperCase(java.util.Locale.ROOT));
+        nameLine.setText(name.toUpperCase(java.util.Locale.ROOT));
         nameLine.setVisibility(name.isEmpty() ? android.view.View.GONE : android.view.View.VISIBLE);
         Weather.get(this, (temp, cond, city) -> weather.setText(temp + "   " + cond + "   ·   " + city));
         fillSubscriptions();
@@ -126,9 +126,13 @@ public class ClockDream extends DreamService {
             chip.setOrientation(LinearLayout.VERTICAL);
             chip.setPadding(Ui.dp(this, 16), Ui.dp(this, 9), Ui.dp(this, 16), Ui.dp(this, 9));
             chip.setBackground(new Ui.LiquidGlass(this, 18));
+            chip.setMinimumWidth(Ui.dp(this, 120));
             TextView n = Ui.text(this, R.font.montserrat_bold, 13, 0xFFFFFFFF);
             n.setText(sub.name);
             n.setSingleLine(true);
+            // Measured a little short with this font: pad the width so long names like JioHotstar aren't clipped.
+            n.setPadding(0, 0, Ui.dp(this, 6), 0);
+            n.setMinWidth((int) (n.getPaint().measureText(sub.name) * 1.12f));
             chip.addView(n);
             TextView d = Ui.text(this, R.font.montserrat_medium, 12, sub.color());
             d.setText(sub.label());
