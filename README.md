@@ -108,7 +108,7 @@ To undo only the debloat: `./scripts/restore.sh lists/<the list you used>.txt`.
 
 | What | Where |
 |---|---|
-| Your name, weather city, TV address, subscription renewals | `tv.conf` |
+| Your name, weather city, TV address, subscription renewals, screensaver delay | `tv.conf` |
 | Dock apps and their order | `launcher/app/src/main/res/values/config.xml` → `dock_apps` (or *Edit dock* on the TV) |
 | Titles for For You, Swipe, Jarvis | `launcher/app/src/main/assets/catalog.json` (then `python3 tools/fetch_posters.py`) |
 | Home wallpaper theme | `./scripts/theme.sh themes/aurora-dynamic` (morning / evening / night wallpapers) |

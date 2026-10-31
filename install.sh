@@ -34,5 +34,7 @@ tv cmd package set-home-activity $PKG/.MainActivity >/dev/null || true
 # The launcher's screensaver: greeting, clock, date and weather.
 tv settings put secure screensaver_components $PKG/.ClockDream
 tv settings put secure screensaver_enabled 1
+# Minutes without the remote before the screensaver starts (SCREENSAVER_MINUTES in tv.conf; unset keeps the TV's own).
+[ -n "${SCREENSAVER_MINUTES:-}" ] && tv settings put system screen_off_timeout $((SCREENSAVER_MINUTES * 60000))
 tv am start -n $PKG/.MainActivity >/dev/null
 echo "Installed. Press Home on the remote."

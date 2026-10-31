@@ -16,3 +16,6 @@ WEATHER_CITY=
 #   renews every year       Prime Video=yearly:03-01    (on 1 March)
 # Separate with commas and keep the quotes. Empty: no subscriptions shown.
 SUBSCRIPTIONS=""
+
+# Minutes without touching the remote before the screensaver starts. Empty keeps the TV's own setting.
+SCREENSAVER_MINUTES=5
