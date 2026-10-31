@@ -1,0 +1,34 @@
+# Xiaomi MiTV-MOOR0 (venom, MediaTek), Google TV 14 (UKN3 firmware), India.
+# Ads, tracking, promos and dead weight. Tested: Live TV/HDMI, the remote, Bluetooth, Play Store, Chromecast,
+# Mi Cast and every streaming app keep working. Disabled, not uninstalled: scripts/restore.sh <this file> undoes it.
+#
+# Do NOT add to a list on this TV (verified):
+#   com.google.android.apps.tv.launcherx  - keep enabled: disabled, a reboot can end on a black setup "recovery" screen.
+#                                          The launcher's Home-button helper takes you to the new Home instead.
+#   com.mitv.livetv, mitv.service, com.mediatek.tvinput, com.mediatek.tv.service - HDMI, inputs, remote keys
+#   com.mi.bluetooth, com.google.android.tv.remote.service - remote and phone-as-remote pairing
+
+# Xiaomi and Google telemetry
+com.miui.tv.analytics
+com.xiaomi.statistic
+com.xiaomi.tvqs.overseas               # Firebase analytics
+com.google.android.partnersetup        # attribution pings
+
+# Ad rows and promos on the stock home
+com.mitv.tvhome.oemtab                 # the ad row
+com.mitv.tvhome.michannel              # Mi content rows
+com.mitv.tvhome.mitvplus               # Mi TV+ ad-funded channels
+com.mitv.tvhome.atv                    # PatchWall
+com.xm.webcontent                      # promo web pages
+
+# Store demo and dead weight
+fusion.android.tv.demo                 # in-store demo loop
+com.mitv.toolhouse
+com.xiaomi.mitv.manualhelp             # on-screen manual
+com.xiaomo.tv.milegal                  # legal notices
+android.autoinstalls.config.xiaomi.amelie   # silently installs preloaded apps
+
+# Optional, kept on by default (remove the # to disable):
+# com.xiaomi.mitv.tvmanager            # TV Manager: memory boost, cleaner, deep clean - useful, kept
+# com.xiaomi.mitv.smartshare           # Mi Cast / Miracast
+# com.xiaomi.wfdsinkhelperservice      # Miracast

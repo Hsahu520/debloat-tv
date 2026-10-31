@@ -1,0 +1,12 @@
+cleanyourtv/
+backup/
+shots/
+launcher/app/build/
+launcher/.gradle/
+launcher/build/
+launcher/local.properties
+*.apk
+tv.conf
+# Copyrighted artwork: fetched or added on your own computer, never committed.
+launcher/app/src/main/assets/posters/
+launcher/app/src/main/assets/home2/

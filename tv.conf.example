@@ -1,0 +1,11 @@
+# Copy this file to tv.conf and fill it in. tv.conf stays on your computer (it is in .gitignore).
+
+# Your TV's IP address: TV Settings > Network & Internet > (your Wi-Fi) > IP address.
+TV_HOST=192.168.1.50
+
+# Shown on Home and on the screensaver, e.g. GREETING_NAME="Asha & Ravi" (keep the quotes). Empty: no name.
+GREETING_NAME=
+
+# City for the weather on the screensaver (Open-Meteo, no key needed). Leave empty to hide the weather.
+# Use the local spelling if a name is ambiguous, e.g. Bengaluru rather than Bangalore.
+WEATHER_CITY=

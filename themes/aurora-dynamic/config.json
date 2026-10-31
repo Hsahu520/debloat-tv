@@ -1,0 +1,17 @@
+{
+  "background_color": "#070A14",
+  "wallpaper": true,
+  "wallpaper_rotation_minutes": 60,
+  "wallpaper_order": "sequential",
+  "wallpaper_moods": {
+    "morning": [
+      "morning.jpg"
+    ],
+    "evening": [
+      "evening.jpg"
+    ],
+    "night": [
+      "night.jpg"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- iOS (SF Symbols) style, drawn fresh: rounded strokes, medium weight. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="22dp" android:height="22dp" android:viewportWidth="24" android:viewportHeight="24">
+    <path android:pathData="M9.5,5.5 C10.67,11.65 10.67,11.65 16.0,13 C10.67,14.35 10.67,14.35 9.5,20.5 C8.33,14.35 8.33,14.35 3.0,13 C8.33,11.65 8.33,11.65 9.5,5.5 Z" android:fillColor="#FFFFFFFF" />
+    <path android:pathData="M17.5,2.4 C18.04,5.188 18.04,5.188 20.5,5.8 C18.04,6.412 18.04,6.412 17.5,9.2 C16.96,6.412 16.96,6.412 14.5,5.8 C16.96,5.188 16.96,5.188 17.5,2.4 Z" android:fillColor="#FFFFFFFF" />
+    <path android:pathData="M18.2,14.799999999999999 C18.578,16.768 18.578,16.768 20.3,17.2 C18.578,17.631999999999998 18.578,17.631999999999998 18.2,19.599999999999998 C17.822,17.631999999999998 17.822,17.631999999999998 16.099999999999998,17.2 C17.822,16.768 17.822,16.768 18.2,14.799999999999999 Z" android:fillColor="#FFFFFFFF" />
+</vector>
